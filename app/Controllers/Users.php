@@ -41,7 +41,7 @@ class Users extends BaseController
     ];
     $this->data['page_title'] = $page_title;
     $this->data['orders'] = $this->order_model->get()->getResult();
-    return view('dashboard/index', $this->data);
+    return view('Dashboard/index', $this->data);
 	}
 
 	public function list() {

@@ -38,7 +38,7 @@ class Order extends BaseController {
     $this->data['order_sources'] = $this->order_sources_model->get()->getResult();
     $this->data['order_status'] = $this->order_status_model->get()->getResult();
 
-    return view('dashboard/index', $this->data);
+    return view('Dashboard/index', $this->data);
   }
 
   public function list() {
