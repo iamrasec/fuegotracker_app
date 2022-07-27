@@ -38,7 +38,9 @@ class Home extends BaseController
 			// 	]
 			// ];
 
-            $user = $this->user_model->where('email', $this->request->getPost('email'))->first();
+            $user = $this->user_model->get()->getResult();
+
+            print_r($user);die();
 
             if(password_verify($this->request->getPost('password'), $user['password'])) {
                 $this->setUserSession($user);
