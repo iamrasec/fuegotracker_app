@@ -38,7 +38,7 @@ class Home extends BaseController
 			// 	]
 			// ];
 
-            print_r($this->user_model);die();
+            print_r($this);die();
 
             $user = $this->user_model->where('email', $this->request->getPost('email'))->first();
 
