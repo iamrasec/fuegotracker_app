@@ -38,8 +38,6 @@ class Home extends BaseController
 			// 	]
 			// ];
 
-            print_r($this->user_model);die();
-
             $user = $this->user_model->where('email', $this->request->getPost('email'))->first();
 
             if(password_verify($this->request->getPost('password'), $user['password'])) {
