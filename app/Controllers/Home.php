@@ -8,7 +8,7 @@ class Home extends BaseController
 
     public function __construct() {
 		$data = [];
-		$this->user_model = $this->load->model('UserModel');
+		$this->user_model = model('UserModel');
 	}
 
     public function index()
@@ -38,7 +38,7 @@ class Home extends BaseController
 			// 	]
 			// ];
 
-            print_r($this);die();
+            print_r($this->user_model);die();
 
             $user = $this->user_model->where('email', $this->request->getPost('email'))->first();
 
