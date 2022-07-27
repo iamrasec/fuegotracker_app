@@ -87,7 +87,7 @@ class Order extends BaseController {
     $this->data['order_sources'] = $this->order_sources_model->get()->getResult();
     $this->data['order_status'] = $this->order_status_model->get()->getResult();
 
-    return view('order/create', $this->data);
+    return view('Order/create', $this->data);
   }
 
   public function save() {

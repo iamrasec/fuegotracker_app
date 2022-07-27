@@ -55,7 +55,7 @@ class Users extends BaseController
 			];
 			$this->data['page_title'] = $page_title;
 			$this->data['users'] = $this->user_model->get()->getResult();
-			return view('users/list', $this->data);
+			return view('Users/list', $this->data);
 		}
 		else {
 			return redirect()->to('/order/list');
@@ -75,7 +75,7 @@ class Users extends BaseController
     $this->data['page_title'] = $page_title;
 		$this->data['roles'] = $this->user_role_model->get()->getResult();
 
-    return view('users/add', $this->data);
+    return view('Users/add', $this->data);
 	}
 
 	public function save_user() {
@@ -130,110 +130,6 @@ class Users extends BaseController
 
 		session()->set($this->data);
 		return true;
-	}
-
-	public function register() {
-		helper(['form']);
-
-		// if($this->request->getMethod() == 'post') {
-		if($this->request->getPost()) {
-			// Form validation here
-			$rules = [
-				// 'username' => 'required|min_length[3]|max_length[20]|is_unique[users.username]',
-				'first_name' => 'required|min_length[3]|max_length[20]',
-				'last_name' => 'required|min_length[3]|max_length[20]',
-				'email' => 'min_length[6]|max_length[50]|valid_email|is_unique[users.email]',  // check if email is valid.  check if email is unique on users table
-				'password' => 'required|min_length[8]|max_length[255]',
-				'password_confirm' => 'matches[password]',
-			];
-
-			if(!$this->validate($rules)) {
-				$this->data['validation'] = $this->validator;
-			}
-			else {
-				// $model = new UserModel();
-
-				$newData = [
-					'guid' => $this->_generate_guid(),
-					// 'username' => $this->request->getVar('username'),
-					'first_name' => $this->request->getVar('first_name'),
-					'last_name' => $this->request->getVar('last_name'),
-					'email' => $this->request->getVar('email'),
-					'password' => $this->request->getVar('password'),
-					'role' => 2,
-				];
-
-				// print_r($newData);
-
-				// $model->save($newData);
-				$this->user_model->save($newData);
-
-				$user = $this->user_model->where('email', $this->request->getVar('email'))->first();
-				$this->setUserSession($user);
-				
-				$session = session();
-				$session->setFlashdata('success', 'Successful Registration');
-				return redirect()->to('/dashboard');
-			}
-		}
-
-		echo view('register');
-	}
-
-	public function profile() {
-		$data = [];
-		helper(['form']);
-		// $model = new UserModel();
-
-		if($this->request->getPost()) {
-			// Profile validation here
-			$rules = [
-				'username' => 'required|min_length[3]|max_length[20]|is_unique[users.username]',
-				'first_name' => 'required|min_length[3]|max_length[20]',
-				'last_name' => 'required|min_length[3]|max_length[20]',
-			];
-
-			if($this->request->getPost('password') != '') {
-				$rules['password'] = 'required|min_length[8]|max_length[255]';
-				$rules['password_confirm'] = 'matches[password]';
-			}
-
-			if(!$this->validate($rules)) {
-				$data['validation'] = $this->validator;
-			}
-			else {
-				// $model = new UserModel();
-
-				$newData = [
-					'id' => session()->get('id'),
-					'username' => $this->request->getPost('username'),
-					'first_name' => $this->request->getPost('first_name'),
-					'last_name' => $this->request->getPost('last_name'),
-				];
-
-				if($this->request->getPost('password') != '') {
-					$newData['password'] = $this->request->getPost('password');
-				}
-
-				// $model->save($newData);
-				$this->user_model->save($newData);
-				session()->setFlashdata('success', 'Successfully Updated');
-				return redirect()->to('/profile');
-			}
-		}
-
-		// $data['user'] = $model->where('id', session()->get('id'))->first();
-		$data['user'] = $this->user_model->where('id', session()->get('id'))->first();
-		$role = session()->get('role');
-
-    if($role == 'admin') {
-      echo view('templates/admin_header', $data);
-    }
-    else {
-      echo view('templates/header', $data);
-    }
-		echo view('profile');
-		echo view('templates/footer');
 	}
 
 	public function logout() {
