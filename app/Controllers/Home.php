@@ -23,7 +23,7 @@ class Home extends BaseController
 
     public function login()
     {
-        print_r($this->request->getPost('email')); die();
+        // print_r($this->request->getPost('email')); die();
 
         if($this->request->getPost()) {
 			// Form login validation here
