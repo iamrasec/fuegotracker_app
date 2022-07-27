@@ -8,7 +8,7 @@ class Home extends BaseController
 
     public function __construct() {
 		$data = [];
-		$this->user_model = model('UserModel');
+		$this->user_model = $this->load->model('UserModel');
 	}
 
     public function index()
