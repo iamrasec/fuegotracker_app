@@ -1,0 +1,81 @@
+#add_product input.form-control {
+    display: block;
+    width: 100%;
+    padding: 0.375rem 0.75rem;
+    font-size: 1rem;
+    line-height: 1.5;
+    color: #495057;
+    background-clip: padding-box;
+    border: 1px solid #ced4da !important;
+    border-radius: 0.25rem !important;
+    transition: border-color .15s ease-in-out,box-shadow .15s ease-in-out;
+}
+
+.logo {
+  height: 80px;
+}
+
+nav.navbar.sticky_header {
+  background-color: rgba(38,50,48,0.95) !important;
+  border-radius: 15px;
+}
+
+.product-featured .img-wrap {
+  margin-bottom: 10px;
+}
+
+.product-featured .img-wrap img, 
+.discover-benefit .img-wrap img {
+  width: 100%;
+}
+
+.product-featured .price {
+  font-weight: bold;
+}
+
+.bg-dark {
+  background-color: #000000 !important;
+}
+
+footer.footer {
+  background-color: rgba(38,50,48,0.95) !important;
+  color: #ffffff !important;
+}
+
+.footer .nav-link, footer.footer a {
+  color: #ffffff;
+}
+
+.home-contact-form-wrap {
+  background: url('/assets/img/form-bg.jpg') top left no-repeat;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+}
+
+.home-contact-form {
+  padding: 50px 30px;
+  color: #ffffff;
+}
+
+.home-contact-form h3 {
+  color: #ffffff;
+}
+
+.home-contact-form a {
+  color: #49be99;
+}
+
+#contact_form .card-body {
+  background: rgba(0,0,0,0.50);
+}
+
+#contact_form label, #contact_form input, #contact_form textarea {
+  color: #ffffff;
+}
+
+.sidebar_logo {
+  max-width: 100%;
+  max-height: 100% !important;
+}
