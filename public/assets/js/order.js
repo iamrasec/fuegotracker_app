@@ -27,7 +27,7 @@
 
       $.ajax({
         type: "POST",
-        url: "/api/order/update_order",
+        url: "/index.php/api/order/update_order",
         data: data,
         dataType: "json",
         success: function(json) {
