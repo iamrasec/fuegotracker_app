@@ -60,9 +60,9 @@ class Order extends BaseController {
   public function close($oid) {
     if($this->isLoggedIn) {
 
-      $data = [
-        'end_time' => date('Y-m-d H:i:s'),
-      ];
+      // $data = [
+      //   'end_time' => date('Y-m-d H:i:s'),
+      // ];
 
       // print_r($data);
 
