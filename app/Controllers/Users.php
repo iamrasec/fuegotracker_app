@@ -21,7 +21,7 @@ class Users extends BaseController
 		$this->user_model = model('UserModel');
 		$this->user_role_model = model('UserRoleModel');
 
-		if($this->isLoggedIn !== 1 && $this->role !== 1) {
+		if($this->isLoggedIn !== 1) {
       return redirect()->to('/');
     }
 	}

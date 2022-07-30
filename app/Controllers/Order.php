@@ -9,24 +9,30 @@ class Order extends BaseController {
     helper(['jwt']);
     date_default_timezone_set('America/Los_Angeles');
 
-		$this->data = [];
-		$this->role = session()->get('role');
     $this->isLoggedIn = session()->get('isLoggedIn');
-    $this->guid = session()->get('guid');
+    $this->role = session()->get('role');
 
+    if($this->isLoggedIn != 1) {
+      return redirect()->to('/');
+    }
+
+    $this->guid = session()->get('guid');
+    $this->uid = session()->get('id');
+
+    $this->data = [];
     $this->data['user_jwt'] = getSignedJWTForUser($this->guid);
 
     $this->user_model = model('UserModel');
 		$this->order_model = model('OrderModel');
     $this->order_sources_model = model('OrderSourcesModel');
     $this->order_status_model = model('OrderStatusModel');
-
-    if($this->isLoggedIn !== 1 && $this->role !== 1) {
-      return redirect()->to('/');
-    }
   }
 
   public function index() {
+    if($this->isLoggedIn !== 1) {
+      return redirect()->to('/');
+    }
+
     $page_title = 'All Orders List';
 
     $this->data['page_body_id'] = "orders_list";
@@ -35,7 +41,14 @@ class Order extends BaseController {
       'current' => $page_title,
     ];
     $this->data['page_title'] = $page_title;
-    $this->data['orders'] = $this->order_model->get()->getResult();
+
+    if($this->role == 1) {
+      $this->data['orders'] = $this->order_model->get()->getResult();
+    }
+    else {
+      $this->data['orders'] = $this->order_model->where('author', $this->uid)->get()->getResult();
+    }
+
     $this->data['order_sources'] = $this->order_sources_model->get()->getResult();
     $this->data['order_status'] = $this->order_status_model->get()->getResult();
 
@@ -43,7 +56,13 @@ class Order extends BaseController {
   }
 
   public function list() {
+    if($this->isLoggedIn != 1) {
+      return redirect()->to('/');
+    }
+
     $page_title = 'All Orders List';
+
+    // print_r($this->role);die();
 
     $this->data['page_body_id'] = "orders_list";
     $this->data['breadcrumbs'] = [
@@ -51,7 +70,14 @@ class Order extends BaseController {
       'current' => $page_title,
     ];
     $this->data['page_title'] = $page_title;
-    $this->data['orders'] = $this->order_model->get()->getResult();
+
+    if($this->role == 1) {
+      $this->data['orders'] = $this->order_model->get()->getResult();
+    }
+    else {
+      $this->data['orders'] = $this->order_model->where('author', $this->uid)->get()->getResult();
+    }
+    
     $this->data['order_sources'] = $this->order_sources_model->get()->getResult();
     $this->data['order_status'] = $this->order_status_model->get()->getResult();
 
@@ -143,6 +169,10 @@ class Order extends BaseController {
       'start_time >=' => $this->request->getPost("export_start_date") . " 00:00:00",
       'end_time <=' => $this->request->getPost("export_end_date") . " 23:59:59",
     ];
+
+    if($this->role != 1) {
+      $conditions['author'] = $this->uid;
+    }
 
     $this->order_model->select('orders.*, CONCAT(users.first_name, " ",users.last_name) AS author_name, order_source.source AS orderSource, order_status.status AS orderStatus');
     $this->order_model->where($conditions);
