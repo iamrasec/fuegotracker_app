@@ -57,7 +57,7 @@
         <?php if(session()->get('role') == 1): ?>
         <li class="nav-item px-3">
           <a href="<?= base_url('/users/list'); ?>" class="nav-link text-body p-0">
-            <i class="material-icons fixed-plugin-button-nav cursor-pointer">settings</i>
+            <i class="material-icons fixed-plugin-button-nav cursor-pointer">group</i>
           </a>
         </li>
         <?php endif; ?>
