@@ -24,6 +24,7 @@
   <link href="https://fonts.googleapis.com/icon?family=Material+Icons+Round" rel="stylesheet">
   <!-- CSS Files -->
   <link id="pagestyle" href="<?php echo base_url(); ?>/assets/css/material-dashboard.css?v=3.0.1" rel="stylesheet" />
+  <link rel="stylesheet" href="//code.jquery.com/ui/1.13.2/themes/base/jquery-ui.css">
   <link id="pagestyle" href="<?php echo base_url(); ?>/assets/css/styles.css" rel="stylesheet" />
 
   <!-- initialize uri service -->
@@ -48,12 +49,13 @@
   <script src="<?php echo base_url(); ?>/../assets/js/plugins/choices.min.js"></script>
   <script src="<?php echo base_url(); ?>/../assets/js/plugins/dropzone.min.js"></script>
   <script src="<?php echo base_url(); ?>/../assets/js/plugins/quill.min.js"></script>
-  <script src="<?php echo base_url(); ?>/../assets/js/plugins/multistep-form.js"></script>
+  <!-- <script src="<?php echo base_url(); ?>/../assets/js/plugins/multistep-form.js"></script> -->
   <script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script>
+  <script src="https://code.jquery.com/ui/1.13.2/jquery-ui.js"></script>
   <script src="<?php echo base_url(); ?>/../assets/js/dashboard.js"></script>
 
   <!-- Github buttons -->
-  <script async defer src="https://buttons.github.io/buttons.js"></script>
+  <!-- <script async defer src="https://buttons.github.io/buttons.js"></script> -->
   <!-- Control Center for Material Dashboard: parallax effects, scripts for the example pages etc -->
   <script src="<?php echo base_url(); ?>/assets/js/material-dashboard.min.js?v=3.0.1"></script>
 

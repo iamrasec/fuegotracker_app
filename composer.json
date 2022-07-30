@@ -14,7 +14,8 @@
         "kint-php/kint": "^4.0",
         "laminas/laminas-escaper": "^2.9",
         "psr/log": "^1.1",
-        "robmorgan/phinx": "^0.12.10"
+        "robmorgan/phinx": "^0.12.10",
+        "shuchkin/simplexlsxgen": "^1.2"
     },
     "require-dev": {
         "codeigniter/coding-standard": "^1.1",

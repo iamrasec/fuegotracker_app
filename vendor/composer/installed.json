@@ -3824,6 +3824,61 @@
             "install-path": "../sebastian/version"
         },
         {
+            "name": "shuchkin/simplexlsxgen",
+            "version": "1.2.15",
+            "version_normalized": "1.2.15.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/shuchkin/simplexlsxgen.git",
+                "reference": "053574d1e1afa637f8c0b3900a11d9cdba7d6b72"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/shuchkin/simplexlsxgen/zipball/053574d1e1afa637f8c0b3900a11d9cdba7d6b72",
+                "reference": "053574d1e1afa637f8c0b3900a11d9cdba7d6b72",
+                "shasum": ""
+            },
+            "require": {
+                "ext-mbstring": "*",
+                "ext-zlib": "*",
+                "php": ">=5.4"
+            },
+            "time": "2022-07-05T05:29:18+00:00",
+            "type": "library",
+            "installation-source": "dist",
+            "autoload": {
+                "classmap": [
+                    "src/SimpleXLSXGen.php"
+                ]
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Sergey Shuchkin (SMSPILOT)",
+                    "email": "sergey.shuchkin@gmail.com",
+                    "homepage": "https://shuchkin.ru/"
+                }
+            ],
+            "description": "Export data to Excel XLSx file. PHP XLSX generator.",
+            "homepage": "https://github.com/shuchkin/simplexlsxgen",
+            "keywords": [
+                "backend",
+                "creator",
+                "excel",
+                "generator",
+                "php",
+                "xlsx"
+            ],
+            "support": {
+                "issues": "https://github.com/shuchkin/simplexlsxgen/issues",
+                "source": "https://github.com/shuchkin/simplexlsxgen/tree/1.2.15"
+            },
+            "install-path": "../shuchkin/simplexlsxgen"
+        },
+        {
             "name": "symfony/config",
             "version": "v6.1.0",
             "version_normalized": "6.1.0.0",

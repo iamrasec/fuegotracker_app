@@ -3002,6 +3002,7 @@ return array(
     'SebastianBergmann\\Type\\UnknownType' => $vendorDir . '/sebastian/type/src/type/UnknownType.php',
     'SebastianBergmann\\Type\\VoidType' => $vendorDir . '/sebastian/type/src/type/VoidType.php',
     'SebastianBergmann\\Version' => $vendorDir . '/sebastian/version/src/Version.php',
+    'Shuchkin\\SimpleXLSXGen' => $vendorDir . '/shuchkin/simplexlsxgen/src/SimpleXLSXGen.php',
     'Stringable' => $vendorDir . '/symfony/polyfill-php80/Resources/stubs/Stringable.php',
     'Symfony\\Component\\Config\\Builder\\ClassBuilder' => $vendorDir . '/symfony/config/Builder/ClassBuilder.php',
     'Symfony\\Component\\Config\\Builder\\ConfigBuilderGenerator' => $vendorDir . '/symfony/config/Builder/ConfigBuilderGenerator.php',

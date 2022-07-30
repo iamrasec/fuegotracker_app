@@ -1,11 +1,11 @@
 <?php return array(
     'root' => array(
-        'pretty_version' => 'dev-main',
-        'version' => 'dev-main',
+        'pretty_version' => 'dev-master',
+        'version' => 'dev-master',
         'type' => 'project',
         'install_path' => __DIR__ . '/../../',
         'aliases' => array(),
-        'reference' => 'bc1145a82f5aae6d87e84aeec5d622a7d3184cc7',
+        'reference' => 'fba3acea0407213c6383aacaea2190e286246aa3',
         'name' => 'codeigniter4/codeigniter4',
         'dev' => true,
     ),
@@ -56,12 +56,12 @@
             'dev_requirement' => true,
         ),
         'codeigniter4/codeigniter4' => array(
-            'pretty_version' => 'dev-main',
-            'version' => 'dev-main',
+            'pretty_version' => 'dev-master',
+            'version' => 'dev-master',
             'type' => 'project',
             'install_path' => __DIR__ . '/../../',
             'aliases' => array(),
-            'reference' => 'bc1145a82f5aae6d87e84aeec5d622a7d3184cc7',
+            'reference' => 'fba3acea0407213c6383aacaea2190e286246aa3',
             'dev_requirement' => false,
         ),
         'composer/pcre' => array(
@@ -561,6 +561,15 @@
             'aliases' => array(),
             'reference' => 'c6c1022351a901512170118436c764e473f6de8c',
             'dev_requirement' => true,
+        ),
+        'shuchkin/simplexlsxgen' => array(
+            'pretty_version' => '1.2.15',
+            'version' => '1.2.15.0',
+            'type' => 'library',
+            'install_path' => __DIR__ . '/../shuchkin/simplexlsxgen',
+            'aliases' => array(),
+            'reference' => '053574d1e1afa637f8c0b3900a11d9cdba7d6b72',
+            'dev_requirement' => false,
         ),
         'symfony/config' => array(
             'pretty_version' => 'v6.1.0',

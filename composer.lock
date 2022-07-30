@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "d61b9eb02504c75ca738dcd8fa95740e",
+    "content-hash": "52eb1200468cccdad124d3cf8eea4b9a",
     "packages": [
         {
             "name": "cakephp/core",
@@ -663,6 +663,58 @@
                 "source": "https://github.com/cakephp/phinx/tree/0.12.10"
             },
             "time": "2022-01-21T19:53:14+00:00"
+        },
+        {
+            "name": "shuchkin/simplexlsxgen",
+            "version": "1.2.15",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/shuchkin/simplexlsxgen.git",
+                "reference": "053574d1e1afa637f8c0b3900a11d9cdba7d6b72"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/shuchkin/simplexlsxgen/zipball/053574d1e1afa637f8c0b3900a11d9cdba7d6b72",
+                "reference": "053574d1e1afa637f8c0b3900a11d9cdba7d6b72",
+                "shasum": ""
+            },
+            "require": {
+                "ext-mbstring": "*",
+                "ext-zlib": "*",
+                "php": ">=5.4"
+            },
+            "type": "library",
+            "autoload": {
+                "classmap": [
+                    "src/SimpleXLSXGen.php"
+                ]
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Sergey Shuchkin (SMSPILOT)",
+                    "email": "sergey.shuchkin@gmail.com",
+                    "homepage": "https://shuchkin.ru/"
+                }
+            ],
+            "description": "Export data to Excel XLSx file. PHP XLSX generator.",
+            "homepage": "https://github.com/shuchkin/simplexlsxgen",
+            "keywords": [
+                "backend",
+                "creator",
+                "excel",
+                "generator",
+                "php",
+                "xlsx"
+            ],
+            "support": {
+                "issues": "https://github.com/shuchkin/simplexlsxgen/issues",
+                "source": "https://github.com/shuchkin/simplexlsxgen/tree/1.2.15"
+            },
+            "time": "2022-07-05T05:29:18+00:00"
         },
         {
             "name": "symfony/config",

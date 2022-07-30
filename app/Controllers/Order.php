@@ -1,6 +1,7 @@
 <?php
 namespace App\Controllers;
 use App\Controllers\BaseController;
+use Shuchkin\SimpleXLSXGen;
 
 class Order extends BaseController {
   
@@ -72,29 +73,6 @@ class Order extends BaseController {
     }
   }
 
-  public function update_order()
-  {
-    $data = $this->request->getPost();
-    
-    $oid = $this->request->getPost("order_id");
-    $curr_status = $this->request->getPost("curr_status");
-    $new_status = $this->request->getPost("new_status");
-    $close_order = $this->request->getPost("close_order");
-
-    if($close_order == 1) {
-      $this->order_model->set('end_time', date('Y-m-d H:i:s'));
-    }
-
-    if($curr_status != $new_status) {
-      $this->order_model->set('order_status', $new_status);
-    }
-    
-    $this->order_model->where('id', $oid)->update();
-
-    echo json_encode(["status" => 200, "data" => $data]);
-    exit;
-  }
-
   public function create() {
     helper(['form']);
 
@@ -135,5 +113,66 @@ class Order extends BaseController {
     }
   }
 
+  public function update_order() {
+    $data = $this->request->getPost();
+    
+    $oid = $this->request->getPost("order_id");
+    $curr_status = $this->request->getPost("curr_status");
+    $new_status = $this->request->getPost("new_status");
+    $close_order = $this->request->getPost("close_order");
 
+    if($close_order == 1) {
+      $this->order_model->set('end_time', date('Y-m-d H:i:s'));
+    }
+
+    if($curr_status != $new_status) {
+      $this->order_model->set('order_status', $new_status);
+    }
+    
+    $this->order_model->where('id', $oid)->update();
+
+    echo json_encode(["status" => 200, "data" => $data]);
+    exit;
+  }
+
+  public function export_data() {
+
+    $data = $this->request->getPost();
+
+    $conditions = [
+      'start_time >=' => $this->request->getPost("export_start_date") . " 00:00:00",
+      'end_time <=' => $this->request->getPost("export_end_date") . " 23:59:59",
+    ];
+
+    $this->order_model->select('orders.*, CONCAT(users.first_name, " ",users.last_name) AS author_name, order_source.source AS orderSource, order_status.status AS orderStatus');
+    $this->order_model->where($conditions);
+    $this->order_model->join('users', 'orders.author = users.id', 'inner');
+    $this->order_model->join('order_source', 'orders.order_source = order_source.id', 'inner');
+    $this->order_model->join('order_status', 'orders.order_status = order_status.id', 'inner');
+
+    $result = $this->order_model->get()->getResult();
+
+    $data_arr = [
+      ["Order Number", "Start Time", "End Time", "Customer Name", "Phone", "Order Source", "Order Status", "Additional Note", "Author"],
+    ];
+
+    foreach($result as $row) {
+      $data_arr[] = [
+        $row->order_number,
+        "\0".$row->start_time,
+        "\0".$row->end_time,
+        $row->customer_name,
+        $row->phone,
+        $row->orderSource,
+        $row->orderStatus,
+        $row->additional_note,
+        $row->author_name,
+      ];
+    }
+
+    $xlsx = SimpleXLSXGen::fromArray($data_arr)->downloadAs('order-export--'.$this->request->getPost("export_start_date").'-to-'.$this->request->getPost("export_end_date").'.xlsx');
+
+    // echo json_encode(["status" => 200, "data" => $data, "conditions" => $conditions, "result" => $result]);
+    exit;
+  }
 }
