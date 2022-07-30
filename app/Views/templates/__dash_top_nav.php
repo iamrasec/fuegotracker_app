@@ -3,9 +3,9 @@
     <nav aria-label="breadcrumb">
       <ol class="breadcrumb bg-transparent mb-0 pb-0 pt-1 px-0 me-sm-6 me-5">
         <li class="breadcrumb-item text-sm">
-          <a class="opacity-3 text-dark" href="javascript:;">
+          <a class="opacity-3 text-dark" href="<?= base_url('/order/list'); ?>">
             <svg width="12px" height="12px" class="mb-1" viewBox="0 0 45 40" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
-              <title>shop </title>
+              <title>TrackerApp</title>
               <g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
                 <g transform="translate(-1716.000000, -439.000000)" fill="#252f40" fill-rule="nonzero">
                   <g transform="translate(1716.000000, 291.000000)">
@@ -26,13 +26,13 @@
       </ol>
     </nav>
     <div class="sidenav-toggler sidenav-toggler-inner d-xl-block d-none ">
-      <a href="javascript:;" class="nav-link text-body p-0">
+      <!-- <a href="javascript:;" class="nav-link text-body p-0">
         <div class="sidenav-toggler-inner">
           <i class="sidenav-toggler-line"></i>
           <i class="sidenav-toggler-line"></i>
           <i class="sidenav-toggler-line"></i>
         </div>
-      </a>
+      </a> -->
     </div>
     <div class="collapse navbar-collapse mt-sm-0 mt-2 me-md-0 me-sm-4" id="navbar">
       <div class="ms-md-auto pe-md-3 d-flex align-items-center">
