@@ -54,6 +54,9 @@ class Users extends BaseController
 				'current' => $page_title,
 			];
 			$this->data['page_title'] = $page_title;
+
+			$this->user_model->select('users.*, user_roles.role AS user_role');
+			$this->user_model->join('user_roles', 'users.role = user_roles.id', 'inner');
 			$this->data['users'] = $this->user_model->get()->getResult();
 			return view('Users/list', $this->data);
 		}
