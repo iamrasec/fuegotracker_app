@@ -12,11 +12,10 @@
   <!-- Navbar -->
   <?php echo $this->include('templates/__dash_top_nav.php'); ?>
   <!-- End Navbar -->
+  
   <div class="container-fluid py-4">
-    <div class="row">
-      <?php if(isset($validation)): ?><div class="alert alert-danger text-white" role="alert"><?= $validation->listErrors(); ?></div><?php endif; ?>
-    </div>
-    <form id="create_order" class="create_order_form" action="<?=base_url('/users/save_user'); ?>" method="POST">
+  <a href="<?= base_url('users/list'); ?>"><< Back</a>
+    <form id="create_order" class="create_order_form" action="<?=base_url('/users/edit_user/'.$edit_uid); ?>" method="POST">
       <div class="row">
         <div class="col-lg-6">
           <h4><?php echo $page_title; ?></h4>
@@ -34,35 +33,21 @@
                 <div class="col-6 col-md-6 col-xs-12 mb-3">
                   <label class="form-label" for="name">First Name</label>
                   <div class="input-group input-group-dynamic">
-                    <input type="text" id="first_name" class="form-control w-100 border px-2" name="first_name" onfocus="focused(this)" onfocusout="defocused(this)">
+                    <input type="text" id="first_name" class="form-control w-100 border px-2" name="first_name" value="<?= $user[0]->first_name; ?>" onfocus="focused(this)" onfocusout="defocused(this)">
                   </div>
                 </div>
                 <div class="col-6 col-md-6 col-xs-12 mb-3">
                   <label class="form-label" for="name">Last Name</label>
                   <div class="input-group input-group-dynamic">
-                    <input type="text" class="form-control w-100 border px-2" id="last_name" name="last_name" onfocus="focused(this)" onfocusout="defocused(this)">
+                    <input type="text" class="form-control w-100 border px-2" id="last_name" name="last_name" value="<?= $user[0]->last_name; ?>" onfocus="focused(this)" onfocusout="defocused(this)">
                   </div>
                 </div>
               </div>
               <div class="row mt-4">
                 <div class="col-6 col-md-6 col-xs-12 mb-3">
-                  <label class="form-label" for="name">Password</label>
-                  <div class="input-group input-group-dynamic">
-                    <input type="password" id="password" class="form-control w-100 border px-2" name="password" required onfocus="focused(this)" onfocusout="defocused(this)">
-                  </div>
-                </div>
-                <div class="col-6 col-md-6 col-xs-12 mb-3">
-                  <label class="form-label" for="name">Confirm Password</label>
-                  <div class="input-group input-group-dynamic">
-                    <input type="password" class="form-control w-100 border px-2" id="confirm_password" name="confirm_password" onfocus="focused(this)" required onfocusout="defocused(this)">
-                  </div>
-                </div>
-              </div>  
-              <div class="row mt-4">
-                <div class="col-6 col-md-6 col-xs-12 mb-3">
                   <label class="form-label" for="name">Email Address</label>
                   <div class="input-group input-group-dynamic">
-                    <input type="text" id="email" class="form-control w-100 border px-2" name="email" required onfocus="focused(this)" onfocusout="defocused(this)">
+                    <input type="text" id="email" class="form-control w-100 border px-2" name="email" value="<?= $user[0]->email; ?>" required onfocus="focused(this)" onfocusout="defocused(this)">
                   </div>
                 </div>
                 <div class="col-6 col-md-6 col-xs-12 mb-3">
@@ -71,14 +56,32 @@
                     <select id="role" name="role" class="form-control w-100 border px-2" required onfocus="focused(this)" onfocusout="defocused(this)">
                       <option>Please Select One</option>
                       <?php foreach($roles as $role): ?>
-                        <option value="<?php echo $role->id; ?>"><?= $role->role; ?></option>
+                        <?php $selected = ($role->id == $user[0]->role) ? 'selected' : ''; ?>
+                        <option value="<?= $role->id; ?>" <?= $selected; ?>><?= $role->role; ?></option>
                       <?php endforeach; ?>
                     </select>
                   </div>
                 </div>
               </div>         
-              
-              
+            </div>
+          </div>
+          <div class="card">
+            <div class="card-body">
+              <h5 class="font-weight-bolder">Reset Password</h5>
+              <div class="row mt-4">
+                <div class="col-6 col-md-6 col-xs-12 mb-3">
+                  <label class="form-label" for="name">New Password</label>
+                  <div class="input-group input-group-dynamic">
+                    <input type="password" id="password" class="form-control w-100 border px-2" name="password" onfocus="focused(this)" onfocusout="defocused(this)">
+                  </div>
+                </div>
+                <div class="col-6 col-md-6 col-xs-12 mb-3">
+                  <label class="form-label" for="name">Confirm Password</label>
+                  <div class="input-group input-group-dynamic">
+                    <input type="password" class="form-control w-100 border px-2" id="confirm_password" name="confirm_password" onfocus="focused(this)" onfocusout="defocused(this)">
+                  </div>
+                </div>
+              </div>
             </div>
           </div>
         </div>

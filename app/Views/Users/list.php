@@ -43,7 +43,10 @@
                     <td><?= $user->last_name; ?></td>
                     <td><?= $user->email; ?></td>
                     <td><?= $user->user_role; ?></td>
-                    <td></td>
+                    <td>
+                      <a href="<?= base_url('/users/edit/'.$user->id); ?>"><i class="material-icons fixed-plugin-button-nav cursor-pointer">edit</i></a> &nbsp; 
+                      <a href="<?= base_url('/users/delete_user/'.$user->id); ?>"><i class="material-icons fixed-plugin-button-nav cursor-pointer">delete</i></a>
+                    </td>
                   </tr>
                   <?php endforeach; ?>
                 </tbody>
