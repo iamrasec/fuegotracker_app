@@ -124,12 +124,14 @@ class Order extends BaseController {
       $post = $this->request->getPost();
 
       $save_data = [
+        'start_time' => $post['start_time'],
         'customer_name' => $post['customer_name'],
         'phone' => $post['phone'],
         'order_number' => $post['order_number'],
         'order_source' => $post['order_source'],
         'order_status' => $post['order_status'],
         'additional_note' => $post['additional_note'],
+        'created_at' => $post['start_time'],
         'author' => session()->get('id'),
       ];
 
