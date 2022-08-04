@@ -72,10 +72,11 @@ class Order extends BaseController {
     $this->data['page_title'] = $page_title;
 
     if($this->role == 1) {
-      $this->data['orders'] = $this->order_model->get()->getResult();
+      // $this->data['orders'] = $this->order_model->get()->getResult();
+      $this->data['orders'] = $this->order_model->like('start_time', date('Y-m-d'), 'after')->get()->getResult();
     }
     else {
-      $this->data['orders'] = $this->order_model->where('author', $this->uid)->get()->getResult();
+      $this->data['orders'] = $this->order_model->where('author', $this->uid)->like('start_time', date('Y-m-d'), 'after')->get()->getResult();
     }
     
     $this->data['order_sources'] = $this->order_sources_model->get()->getResult();
@@ -131,9 +132,17 @@ class Order extends BaseController {
         'order_source' => $post['order_source'],
         'order_status' => $post['order_status'],
         'additional_note' => $post['additional_note'],
-        'created_at' => $post['start_time'],
+        'created_at' => date('Y-m-d H:i:s'),
         'author' => session()->get('id'),
       ];
+
+      if($post['order_status'] != 4) { // PENDING == 4
+        // print_r("is not pending");die();
+        $save_data['end_time'] = date('Y-m-d H:i:s');
+      }
+      // else {
+      //   print_r("is pending");die();
+      // }
 
       $this->order_model->save($save_data);
 
