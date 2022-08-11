@@ -69,12 +69,12 @@
                     <td><a href="<?= base_url('/order/view/'.$order->id); ?>"><?= $order->additional_note; ?></a></td>
                     <td>
                       <a href="<?= base_url('/order/view/'.$order->id); ?>"><i class="material-icons fixed-plugin-button-nav cursor-pointer">pageview</i></a> &nbsp; 
-                      <?php if($order->end_time == '0000-00-00 00:00:00'): ?>
+                      <?php // if($order->end_time == '0000-00-00 00:00:00'): ?>
                         <!-- <a href="<?= base_url('/order/close/'.$order->id); ?>"><i class="material-icons fixed-plugin-button-nav cursor-pointer">check</i></a> -->
                         <a href="#" id="update_order" data-bs-toggle="modal" data-bs-target="#updateModal" data-order-id="<?= $order->id; ?>" data-status-id="<?= $order->order_status; ?>">
                           <i class="material-icons fixed-plugin-button-nav cursor-pointer">check</i>
                         </a>
-                      <?php endif; ?>
+                      <?php // endif; ?>
                     </td>
                   </tr>
                   <?php endforeach; ?>
