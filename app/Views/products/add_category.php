@@ -137,72 +137,45 @@
           <div class="card-body">
             <div class="row">
               <h5 class="font-weight-bolder mb-3">Pricing</h5>
-              <div class="col-3"">
-      <div class=" input-group input-group-dynamic">
-                <label class="form-label">Price</label>
-                <input type="email" class="form-control w-100" aria-describedby="emailHelp" onfocus="focused(this)" onfocusout="defocused(this)">
+              <div class="col-3">
+                <div class="input-group input-group-dynamic">
+                  <label class="form-label">Price</label>
+                  <input type="email" class="form-control w-100" aria-describedby="emailHelp" onfocus="focused(this)" onfocusout="defocused(this)">
+                </div>
+              </div>
+              <div class="col-4">
+                <select class="form-control" name="choices-sizes" id="choices-currency-edit">
+                  <option value="Choice 1" selected="">USD</option>
+                  <option value="Choice 2">EUR</option>
+                  <option value="Choice 3">GBP</option>
+                  <option value="Choice 4">CNY</option>
+                  <option value="Choice 5">INR</option>
+                  <option value="Choice 6">BTC</option>
+                </select>
+              </div>
+              <div class="col-5">
+                <div class="input-group input-group-dynamic">
+                  <label class="form-label">SKU</label>
+                  <input type="email" class="form-control w-100" aria-describedby="emailHelp" onfocus="focused(this)" onfocusout="defocused(this)">
+                </div>
               </div>
             </div>
-            <div class="col-4">
-              <select class="form-control" name="choices-sizes" id="choices-currency-edit">
-                <option value="Choice 1" selected="">USD</option>
-                <option value="Choice 2">EUR</option>
-                <option value="Choice 3">GBP</option>
-                <option value="Choice 4">CNY</option>
-                <option value="Choice 5">INR</option>
-                <option value="Choice 6">BTC</option>
-              </select>
-            </div>
-            <div class="col-5">
-              <div class="input-group input-group-dynamic">
-                <label class="form-label">SKU</label>
-                <input type="email" class="form-control w-100" aria-describedby="emailHelp" onfocus="focused(this)" onfocusout="defocused(this)">
+            <div class="row">
+              <div class="col-12">
+                <label class="mt-4">Tags</label>
+                <select class="form-control" name="choices-tags" id="choices-tags-edit" multiple>
+                  <option value="Choice 1" selected>In Stock</option>
+                  <option value="Choice 2">Out of Stock</option>
+                  <option value="Choice 3">Sale</option>
+                  <option value="Choice 4">Black Friday</option>
+                </select>
               </div>
-            </div>
-          </div>
-          <div class="row">
-            <div class="col-12">
-              <label class="mt-4">Tags</label>
-              <select class="form-control" name="choices-tags" id="choices-tags-edit" multiple>
-                <option value="Choice 1" selected>In Stock</option>
-                <option value="Choice 2">Out of Stock</option>
-                <option value="Choice 3">Sale</option>
-                <option value="Choice 4">Black Friday</option>
-              </select>
             </div>
           </div>
         </div>
       </div>
     </div>
   </div>
-  <footer class="footer py-4  ">
-    <div class="container-fluid">
-      <div class="row align-items-center justify-content-lg-between">
-        <div class="col-lg-6 mb-lg-0 mb-4">
-          <div class="copyright text-center text-sm text-muted text-lg-start">
-            
-          </div>
-        </div>
-        <div class="col-lg-6">
-          <ul class="nav nav-footer justify-content-center justify-content-lg-end">
-            <li class="nav-item">
-              <a href="https://www.creative-tim.com" class="nav-link text-muted" target="_blank">Creative Tim</a>
-            </li>
-            <li class="nav-item">
-              <a href="https://www.creative-tim.com/presentation" class="nav-link text-muted" target="_blank">About Us</a>
-            </li>
-            <li class="nav-item">
-              <a href="https://www.creative-tim.com/blog" class="nav-link text-muted" target="_blank">Blog</a>
-            </li>
-            <li class="nav-item">
-              <a href="https://www.creative-tim.com/license" class="nav-link pe-0 text-muted" target="_blank">License</a>
-            </li>
-          </ul>
-        </div>
-      </div>
-    </div>
-  </footer>
-  </div>
-  </main>
+</main>
 
 <?php $this->endSection() ?>
