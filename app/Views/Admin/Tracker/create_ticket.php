@@ -35,12 +35,12 @@
                     <input type="text" id="product_name" class="form-control w-100 border px-2" name="name" required onfocus="focused(this)" onfocusout="defocused(this)">
                   </div>
                 </div>
-                <div class="col-4 col-md-4 col-xs-12 mb-3">
+                <!-- <div class="col-4 col-md-4 col-xs-12 mb-3">
                   <label class="form-label" for="name">End Time</label>
                   <div class="input-group input-group-dynamic">
                     <input type="text" class="form-control w-100 border px-2" id="sku" name="sku" onfocus="focused(this)" required onfocusout="defocused(this)">
                   </div>
-                </div>
+                </div> -->
               </div>
               <div class="row mt-4">
                 <div class="col-8 col-md-8 col-xs-12 mb-3">
@@ -84,13 +84,13 @@
                   <div class="input-group input-group-dynamic">
                     <select id="order_status" name="order_status" class="form-control w-100 border px-2" required onfocus="focused(this)" onfocusout="defocused(this)">
                       <option>Please Select One</option>
-                      <option value="completed">Completed</option>
+                      <!-- <option value="completed">Completed</option>
                       <option value="cancelled">Cancelled</option>
                       <option value="preorder">Pre-Order</option>
-                      <option value="pending">Pending</option>
+                      <option value="pending">Pending</option> -->
                       <option value="inquiry">Inquiry</option>
                       <option value="escalation">Escalation</option>
-                      <option value="exchange_return">Exchange & Return</option>
+                      <!-- <option value="exchange_return">Exchange & Return</option> -->
                       <option value="troubleshooting">Troubleshooting</option>
                       <option value="coaching">Coaching</option>
                       <option value="training_shadowing">Training / Shadowing</option>
@@ -119,60 +119,7 @@
   </div>
 </main>
 
-<!-- New Strain Modal -->
-<div class="modal fade" id="newStrainModal" tabindex="-1" role="dialog" aria-labelledby="newStrainModalTitle" aria-hidden="true">
-  <div class="modal-dialog modal-dialog-centered" role="document">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h6 class="modal-title font-weight-normal" id="newStrainModalLabel">Add New Strain</h6>
-        <button type="button" class="btn-close text-dark" data-bs-dismiss="modal" aria-label="Close">
-          <span aria-hidden="true">×</span>
-        </button>
-      </div>
-      <div class="modal-body">
-        <form>
-          <div class="input-group input-group-outline my-3">
-              <label class="form-label">Strain Name</label>
-              <input type="text" class="form-control" name="new_strain_name" value="" id="new_strain_name">
-          </div>
-        </form>
-      </div>
-      <div class="modal-footer">
-        <button type="button" class="cancel-btn btn bg-gradient-secondary" data-bs-dismiss="modal">Cancel</button>
-        <button type="button" class="add-new-strain save-btn btn bg-gradient-primary">Save</button>
-      </div>
-    </div>
-  </div>
-</div>
-
-<!-- New Brand Modal -->
-<div class="modal fade" id="newBrandModal" tabindex="-1" role="dialog" aria-labelledby="newBrandModalTitle" aria-hidden="true">
-  <div class="modal-dialog modal-dialog-centered" role="document">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h6 class="modal-title font-weight-normal" id="exampleModalLabel">Add New Brand</h6>
-        <button type="button" class="btn-close text-dark" data-bs-dismiss="modal" aria-label="Close">
-          <span aria-hidden="true">×</span>
-        </button>
-      </div>
-      <div class="modal-body">
-        <form>
-          <div class="input-group input-group-outline my-3">
-              <label class="form-label">Brand Name</label>
-              <input type="text" class="form-control" name="new_brand_name" value="" id="new_brand_name">
-          </div>
-        </form>
-      </div>
-      <div class="modal-footer">
-        <button type="button" class="cancel-btn btn bg-gradient-secondary" data-bs-dismiss="modal">Cancel</button>
-        <button type="button" class="add-new-brand save-btn btn bg-gradient-primary">Save</button>
-      </div>
-    </div>
-  </div>
-</div>
-
 <?php $this->endSection(); ?>
 <?php $this->section("scripts") ?>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/2.1.2/sweetalert.min.js" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-<script src="<?php echo base_url(); ?>/assets/js/add_product.js"></script>
 <?php $this->endSection() ?>

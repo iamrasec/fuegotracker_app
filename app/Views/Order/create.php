@@ -35,12 +35,12 @@
                     <input type="text" id="start_time" class="form-control w-100 border px-2" name="start_time" value="<?= date("Y-m-d H:i:s"); ?>" readonly onfocus="focused(this)" onfocusout="defocused(this)">
                   </div>
                 </div>
-                <div class="col-4 col-md-4 col-xs-12 mb-3">
+                <!-- <div class="col-4 col-md-4 col-xs-12 mb-3">
                   <label class="form-label" for="name">End Time</label>
                   <div class="input-group input-group-dynamic">
                     <input type="text" class="form-control w-100 border px-2" id="end_time" name="end_time" onfocus="focused(this)" readonly onfocusout="defocused(this)">
                   </div>
-                </div>
+                </div> -->
               </div>
               <div class="row mt-4">
                 <div class="col-8 col-md-8 col-xs-12 mb-3">
