@@ -69,7 +69,9 @@
                     <select id="order_source" name="order_source" class="form-control w-100 border px-2" required onfocus="focused(this)" onfocusout="defocused(this)">
                       <option>Please Select One</option>
                       <?php foreach($order_sources as $order_source): ?>
+                        <?php if(!in_array($order_source->id, [1,2,3,4,7])): ?>
                         <option value="<?php echo $order_source->id; ?>"><?= $order_source->source; ?></option>
+                        <?php endif; ?>
                       <?php endforeach; ?>
                     </select>
                   </div>
